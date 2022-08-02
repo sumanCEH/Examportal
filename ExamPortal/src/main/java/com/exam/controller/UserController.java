@@ -30,10 +30,10 @@ public class UserController {
 	}
 	
 	
-	//ADD new User using post mapping
+		//ADD new User using post mapping
 
-	@PostMapping("/adduser")
-	public User adduser(@RequestBody User user) throws Exception {
+		@PostMapping("/adduser")
+		public User adduser(@RequestBody User user) throws Exception {
 		
 		Set<UserRole> roles = new HashSet<>();
 		
@@ -53,16 +53,17 @@ public class UserController {
 		
 		//call userService and create user
 		return this.userService.createUser(user, roles);
-	}
+	
+		}
 	
 	
-	//get User by userName
+		//get User by userName
 		@GetMapping("/{username}")
 		 public User getUser(@PathVariable("username")String username) throws Exception {
 			 return this.userService.getUser(username);
 		 }
 	
-	//delete User by id	
+		//delete User by id	
 		@DeleteMapping("/{id}")
 		public void deleteUser(@PathVariable("id") Long id) {
 			this.userService.deleteUser(id);

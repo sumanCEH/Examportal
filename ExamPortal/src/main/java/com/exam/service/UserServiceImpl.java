@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService{
 		}
 
 		
-		//Delete User by UserName
+		//Delete User by id
 
 		@Override
 		public void deleteUser(Long id) {
