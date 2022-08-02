@@ -57,24 +57,38 @@ public class UserServiceImpl implements UserService{
 		local = this.userRepo.save(user); 
 
 		}
-
-				
+	
 				return local;
 			}
 
+	
+	
+	
     	//Get User by UserName
 	
 		@Override
-		public User getUser(String username) {
+		public User getUser(String username) throws Exception {
 			return this.userRepo.findByUsername(username);
-		}
+			}
 
+	
+		
 		
 		//Delete User by id
 
 		@Override
-		public void deleteUser(Long id) {
+		public void deleteUser(Long id) throws Exception {
 			this.userRepo.deleteById(id);
+		}
+  
+		
+		
+		//update  User by UserName
+	
+		@Override
+		public User updateUser(String Username) throws Exception {
+			// TODO Auto-generated method stub
+			return null;
 		}
 
 		
