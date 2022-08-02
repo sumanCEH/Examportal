@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -61,5 +62,10 @@ public class UserController {
 			 return this.userService.getUser(username);
 		 }
 	
+	//delete User by id	
+		@DeleteMapping("/{id}")
+		public void deleteUser(@PathVariable("id") Long id) {
+			this.userService.deleteUser(id);
+		}
 	
 }
