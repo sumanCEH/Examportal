@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class UserController {
 	}
 	
 	
-	//Creating User using controller
+	//ADD new User using post mapping
 
 	@PostMapping("/adduser")
 	public User adduser(@RequestBody User user) throws Exception {
@@ -38,8 +39,8 @@ public class UserController {
 		
 		//new role object , and setRole and roleName
 		Role role1 = new Role();
-		role1.setRoleId(44l);
-		role1.setRoleName("ADMIN");
+		role1.setRoleId(45l);
+		role1.setRoleName("A4-EMPlOYEE");
 		
 		//new userRole object , and set  user and role object with userRole
 		UserRole userRole = new UserRole();
@@ -50,6 +51,15 @@ public class UserController {
 		roles.add(userRole);
 		
 		//call userService and create user
-		return this.userService.CreateUser(user, roles);
+		return this.userService.createUser(user, roles);
 	}
+	
+	
+	//get User by userName
+		@GetMapping("/{username}")
+		 public User getUser(@PathVariable("username")String username) throws Exception {
+			 return this.userService.getUser(username);
+		 }
+	
+	
 }

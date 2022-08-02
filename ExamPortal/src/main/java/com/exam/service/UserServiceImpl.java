@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
 	// user service Implementation
 
 	@Override
-	public User CreateUser(User user, Set<UserRole> userRoles) throws Exception {
+	public User createUser(User user, Set<UserRole> userRoles) throws Exception {
 		
 		//check same user ..... and create a "findByUserName" function -----> in UserRepo  
 		User local = this.userRepo.findByUsername(user.getUsername());
@@ -61,5 +61,12 @@ public class UserServiceImpl implements UserService{
 				
 				return local;
 			}
+
+    	//Get User by UserName
+	
+		@Override
+		public User getUser(String username) {
+			return this.userRepo.findByUsername(username);
+		}
 
 	}
